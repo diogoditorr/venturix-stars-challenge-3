@@ -10,7 +10,7 @@ export const api = {
         console.log("oi")
         return response.data;
     },
-    async getByBreed({ queryKey }) {
+    async getByBreed({ queryKey }: { queryKey: string[] }) {
         const [_key, breedName] = queryKey;
         const response = await client.get(`breed/${breedName}/images/random/3`);
         return response.data
