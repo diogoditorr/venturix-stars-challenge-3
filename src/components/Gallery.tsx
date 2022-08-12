@@ -5,6 +5,8 @@ import { api } from "../services/api";
 import { MagnifyingGlassIcon } from "./svg/MagnifyingGlassIcon";
 
 type BreedsQueryData = {
+    // Message is an object with attributes which their values are an array of strings
+
     message: {
         [key: string]: Array<string> | null;
     };
@@ -52,9 +54,12 @@ export function Gallery() {
 
                 breedValue += key;
                 breedText += key;
-                if (message[key].length > 0) {
-                    breedValue += "/" + message[key][0];
-                    breedText += " " + message[key][0];
+
+                const subBreeds = message[key] as Array<string>;
+
+                if (subBreeds.length > 0) {
+                    breedValue += "/" + subBreeds[0];
+                    breedText += " " + subBreeds[0];
                 }
 
                 newBreedList.push({
