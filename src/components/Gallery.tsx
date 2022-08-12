@@ -5,8 +5,6 @@ import { api } from "../services/api";
 import { MagnifyingGlassIcon } from "./svg/MagnifyingGlassIcon";
 
 type BreedsQueryData = {
-    // Message is an object with attributes which their values are an array of strings
-
     message: {
         [key: string]: Array<string> | null;
     };
@@ -46,8 +44,8 @@ export function Gallery() {
 
     useEffect(() => {
         if (breedsQuery.isSuccess) {
-            const newBreedList: BreedList = [];
             const { message } = breedsQuery.data;
+            const newBreedList: BreedList = [];
             Object.keys(message).forEach((key) => {
                 let breedValue = "";
                 let breedText = "";

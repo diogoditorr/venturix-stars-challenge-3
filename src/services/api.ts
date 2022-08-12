@@ -8,7 +8,6 @@ const client = axios.create({
 export const api = {
     async getAllBreeds() {
         const response = await client.get('breeds/list/all');
-        console.log("oi")
         return response.data;
     },
     async getByBreed({ queryKey }: { queryKey: QueryKey }) {
